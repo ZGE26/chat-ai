@@ -88,7 +88,7 @@ const Page: React.FC = () => {
         {loading ? (
           <div className="text-center text-blue-500 font-semibold">Memproses pertanyaan Anda...</div>
         ) : response ? (
-          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow overflow-y-auto max-h-90">
+          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow overflow-y-auto max-h-80">
             <h2 className="font-semibold text-lg mb-2">Jawaban:</h2>
             <div
               className="text-gray-700 prose whitespace-pre-wrap break-words"
