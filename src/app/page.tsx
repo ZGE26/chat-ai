@@ -43,9 +43,8 @@ const Page: React.FC = () => {
       const formattedResponse = rawResponse
         .replace(/```([^`]+)```/g, '<pre class="bg-gray-800 p-2 rounded overflow-auto text-white"><code>$1</code></pre>')
         .replace(/\n/g, '<br />')
-        .replace(/\*\*(.*?)\*\*/g, '<span class="text-xl font-bold">$1</span>')  // 2 bintang -> text-xl
-        .replace(/\*\*\*(.*?)\*\*\*/g, '<span class="text-2xl font-bold">$1</span>')  // 3 bintang -> text-2xl
-
+        .replace(/\*\*(.*?)\*\*/g, '<span class="text-xl font-bold">$1</span>')
+        .replace(/\*\*\*(.*?)\*\*\*/g, '<span class="text-2xl font-bold">$1</span>')
 
       setResponse(formattedResponse);
     } catch (error) {
@@ -57,9 +56,11 @@ const Page: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full h-screen bg-gradient-to-b from-blue-100 to-blue-300 p-4 gap-6">
-      <div className="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full flex-1 flex flex-col">
-        <h1 className="text-2xl font-semibold text-center mb-4">API Generated Gemini</h1>
+    <div className="flex flex-col lg:flex-row items-center justify-center w-full h-screen bg-gradient-to-b from-blue-100 to-blue-300 p-4 gap-6">
+      <div className="bg-white p-8 rounded-2xl shadow-xl w-full flex-1 flex flex-col h-full gap-2">
+        <div className="w-full h-60 overflow-hidden rounded-lg">
+          <img src="https://i.pinimg.com/736x/fa/a6/48/faa648166c1d2978be69b6537fa7024e.jpg" alt="Image" className="object-cover w-full h-full" />
+        </div>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <label htmlFor="pertanyaan" className="block text-sm font-medium text-gray-700">
@@ -84,11 +85,11 @@ const Page: React.FC = () => {
         </form>
       </div>
 
-      <div className="flex-1 w-full bg-white h-full p-6 rounded-2xl shadow-xl">
+      <div className="flex-1 w-full bg-white h-full p-6 rounded-2xl shadow-xl items-center mt-6 lg:mt-0">
         {loading ? (
           <div className="text-center text-blue-500 font-semibold">Memproses pertanyaan Anda...</div>
         ) : response ? (
-          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow overflow-y-auto max-h-80">
+          <div className="mt-6 bg-gray-100 p-4 rounded-lg shadow overflow-y-auto max-h-full">
             <h2 className="font-semibold text-lg mb-2">Jawaban:</h2>
             <div
               className="text-gray-700 prose whitespace-pre-wrap break-words"
