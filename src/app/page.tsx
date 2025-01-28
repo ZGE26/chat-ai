@@ -2,7 +2,6 @@
 
 import axios from "axios";
 import { useState } from "react";
-import "./globals.css";
 
 const Page: React.FC = () => {
   const [question, setQuestion] = useState("");
@@ -45,7 +44,8 @@ const Page: React.FC = () => {
         .replace(/```([^`]+)```/g, '<pre class="bg-gray-800 p-2 rounded overflow-auto text-white"><code>$1</code></pre>')
         .replace(/\n/g, '<br />')
         .replace(/\*\*(.*?)\*\*/g, '<span class="text-xl font-bold">$1</span>')  // 2 bintang -> text-xl
-        .replace(/\*\*\*(.*?)\*\*\*/g, '<span class="text-2xl font-bold">$1</span>');  // 3 bintang -> text-2xl
+        .replace(/\*\*\*(.*?)\*\*\*/g, '<span class="text-2xl font-bold">$1</span>')  // 3 bintang -> text-2xl
+
 
       setResponse(formattedResponse);
     } catch (error) {

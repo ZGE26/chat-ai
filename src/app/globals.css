@@ -3,34 +3,6 @@
 @tailwind utilities;
 
 
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-.typing-animation {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid black;
-  animation: typing 3s steps(40) 1s 1 normal both, blink 0.75s step-end infinite;
-}
-
-@keyframes blink {
-  0%,
-  50%,
-  100% {
-    border-color: transparent;
-  }
-  25%,
-  75% {
-    border-color: black;
-  }
-}
 
 
 /* :root {
